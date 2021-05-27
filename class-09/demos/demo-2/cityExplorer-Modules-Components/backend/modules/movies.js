@@ -4,7 +4,11 @@ module.exports = handleMovie;
 
 
 function handleMovie(request, response) {
-    let { searchQuery } = request.query;
+    // request.query = {searchQuery:'amman',lat:'52.2222',lon:'54.2222'};
+    let searchQuery = request.query.searchQuery;
+    // let latitude = request.query.lat;
+    // let longitude = request.query.lon;
+    let { searchQuery,lat,lon } = request.query;
 
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchQuery}&language=de-DE&region=DE`;
 
@@ -16,7 +20,6 @@ function handleMovie(request, response) {
         })
 
 }
-
 
 
 class Movie {

@@ -20,7 +20,7 @@ server.get('/', (req, res) => {
 server.get('/weather', handleWeather);
 server.get('/movie', handleMovie);
 
-
+// localhost:3000/weather?searchQuery=amman
 function handleWeather(request, response) {
     let city= request.query.searchQuery;
     weather(city)
@@ -29,7 +29,7 @@ function handleWeather(request, response) {
         console.error(error);
         response.status(500).send('Sorry. Something went wrong!')
       });
-  }
+}
 
 
 function errorHandler(error, response) {
